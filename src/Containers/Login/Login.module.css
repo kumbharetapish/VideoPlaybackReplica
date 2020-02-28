@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 150px;
+}
+
+.form input {
+  height: 30px;
+  width: 300px;
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+.form input::placeholder{
+    text-transform: capitalize;
+    font-size: 12px;
+}
