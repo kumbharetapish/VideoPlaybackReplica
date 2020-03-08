@@ -22,6 +22,8 @@ class WatchPage extends React.Component {
         this.props.Increments(this.props.match.params.id);
         Axios.get("https://5d76bf96515d1a0014085cf9.mockapi.io/playlist")
           .then(response => {
+            console.log(response.data);
+
             this.setState({
               videoList: [...response.data],
               videoData: videoDetails,
@@ -53,7 +55,7 @@ class WatchPage extends React.Component {
         <VideoCard
           key={item.id}
           isPlaylist={true}
-          id={item.id}
+          id={parseInt(item.id)}
           thumbnail={item.thumbnail}
           title={item.title}
         />

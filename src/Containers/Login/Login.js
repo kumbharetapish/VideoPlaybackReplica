@@ -6,7 +6,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { userData: {} };
-    console.log(this.props);
+
     const status = this.props.status;
   }
 
@@ -37,18 +37,17 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h2>
-          
-          <br />
-          <br />
-          login Page
-        </h2>
+        <br />
+        <br />
+
         {this.props.loginStatus ? (
-          <div>
-            <h1>{"You are in"}</h1>
+          <div className={loginCss.fromWrapper}>
+            <br />
+            <h1>{"You are Login."}</h1>
           </div>
         ) : (
-          <div>
+          <div className={loginCss.fromWrapper}>
+            <br/>
             <h1>Places login in your account. </h1>
             <form
               onSubmit={this.handleGetLogin}

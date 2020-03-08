@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./HomePage.module.css";
-import Axios from "axios";
 import VideoCard from "../../Components/VideoCard/VideoCard";
+import { getVideoList } from "../../WebService/APIcontroller";
 
 class HomePage extends React.Component {
   state = {
@@ -9,9 +9,10 @@ class HomePage extends React.Component {
   };
 
   componentDidMount() {
-    Axios.get("https://5d76bf96515d1a0014085cf9.mockapi.io/playlist")
+    getVideoList()
       .then(response => {
-        this.setState({ videoList: [...response.data] });
+        console.log(response);
+        this.setState({ videoList: [...response] });
       })
       .catch(err => {
         alert("Failed => " + err);
@@ -23,8 +24,12 @@ class HomePage extends React.Component {
       return (
         <VideoCard
           key={item.id}
-          id={item.id}
-          thumbnail={item.thumbnail}
+          id={parseInt(item.id)}
+          thumbnail={
+            item.id === ""
+              ? "https://demo.accesspressthemes.com/wordpress-plugins/everest-tab/wp-content/plugins/everest-tab/assets/images//thumbnail-default.jpg"
+              : item.thumbnail
+          }
           title={item.title}
         />
       );

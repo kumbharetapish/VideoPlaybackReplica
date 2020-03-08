@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import classes from "./Topbar.module.css";
 import { connect } from "react-redux";
+import { LOGIN_FROM } from "../../Uilit/Route";
 
 const Topbar = props => {
   return (
@@ -15,6 +16,9 @@ const Topbar = props => {
       <Link to="#" className={classes.MenuItem}>
         About
       </Link>
+      <Link to="/history" className={classes.MenuItem}>
+        History
+      </Link>
       {props.loginStatus ? (
         <button onClick={props.handleLogin} className={classes.MenuItem}>
           {" "}
@@ -24,7 +28,7 @@ const Topbar = props => {
         <Link
           onClick={props.handleLogin}
           className={classes.MenuItem}
-          to="/login"
+          to={LOGIN_FROM}
         >
           Login
         </Link>

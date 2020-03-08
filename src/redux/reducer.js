@@ -1,8 +1,8 @@
 const initialState = {
   status:
-    localStorage.getItem("videoCountData") === null
+    localStorage.getItem("loginStatus") === null
       ? false
-      : localStorage.getItem("videoCountData"),
+      : Boolean(localStorage.getItem("loginStatus")),
   storeCounter:
     localStorage.getItem("videoCountData") === null
       ? []
@@ -11,8 +11,9 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   if (action.type === "LOGIN_STATUS") {
-    localStorage.setItem("loginStatus", !state.status);
-    return { ...state, status: !state.status };
+    const updateStatus = !state.status;
+    localStorage.setItem("loginStatus", updateStatus);
+    return { ...state, status: updateStatus };
   }
   if (action.type === "INC") {
     console.log(action.id);

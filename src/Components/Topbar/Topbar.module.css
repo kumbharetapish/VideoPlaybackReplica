@@ -18,4 +18,6 @@
     text-decoration: none;
     font-size: 14px;
     letter-spacing: 1px;
+    border-style: none;
+    background-color: transparent;
 }
